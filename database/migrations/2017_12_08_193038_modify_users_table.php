@@ -15,6 +15,8 @@ class ModifyUsersTable extends Migration
     {
         Schema::table('users', function(Blueprint $table) {
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign('organization_id')->references('id')->on('organizations')->onDelete('cascade');
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
         });
     }
 
