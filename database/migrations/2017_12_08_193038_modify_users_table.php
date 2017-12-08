@@ -28,10 +28,5 @@ class ModifyUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
-        Schema::table('roles', function (Blueprint $table) {
-            $table->dropColumn([
-                'name', 'description'
-            ]);
-        });
     }
 }
