@@ -10,10 +10,10 @@ class Role extends Model
         'id', 'name', 'description',
     ];
 
-    public function roleUser()
-    {
-        return $this->belongsToMany('App\User', 'role_id', 'id');
-    }
+//    public function roleUser()
+//    {
+//        return $this->belongsToMany('App\User', 'role_id', 'id');
+//    }
 }
 
 
