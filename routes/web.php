@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+Route::resource('organization', 'OrganizationController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('branch', 'BranchController');

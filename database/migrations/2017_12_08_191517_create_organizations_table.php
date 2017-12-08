@@ -17,7 +17,7 @@ class CreateOrganizationsTable extends Migration
             $table->increments('id');
             $table->string('organization_name');
             $table->string('address_1');
-            $table->string('address_2');
+            $table->string('address_2')->nullable();
             $table->string('city');
             $table->string('state');
             $table->string('zipcode');
