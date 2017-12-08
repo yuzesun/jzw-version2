@@ -25,6 +25,6 @@ class ModifyUsersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('users');
     }
 }
