@@ -23,5 +23,4 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('organization', 'OrganizationController');
     Route::resource('branch', 'BranchController');
-
 });
