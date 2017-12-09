@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Organization;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Session;
 use View;
+use Validator;
+use Input;
 
 class OrganizationController extends Controller
 {
@@ -14,7 +19,8 @@ class OrganizationController extends Controller
      */
     public function index()
     {
-        return View::make('organizations.index');
+        $organizations = Organization::all();
+        return View::make('organizations.index', compact('organizations'));
     }
 
     /**
@@ -32,10 +38,41 @@ class OrganizationController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        dd($request);
-        return View::make('organizations.index');
+        $rules = array(
+            'organization_name' => 'required',
+            'address_1' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zipcode' => 'required|numeric',
+            'office_number' => 'required',
+            'email' => 'required|email'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('organization/create')
+                ->withErrors($validator);
+        } else {
+            // store
+            $organization = new Organization;
+            $organization->organization_name = Input::get('organization_name');
+            $organization->address_1 = Input::get('address_1');
+            $organization->address_2 = Input::get('address_2');
+            $organization->city = Input::get('city');
+            $organization->state = Input::get('state');
+            $organization->zipcode = Input::get('zipcode');
+            $organization->office_number = Input::get('office_number');
+            $organization->email = Input::get('email');
+            $organization->save();
+
+            // redirect
+            Session::flash('message', 'Successfully Created Organization');
+            return Redirect::to('organization');
+        }
+//        return View::make('organizations.index');
     }
 
     /**
@@ -57,7 +94,8 @@ class OrganizationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $organization = Organization::findOrFail($id);
+        return View::make('organizations.edit')->with('organization', $organization);
     }
 
     /**
@@ -68,7 +106,38 @@ class OrganizationController extends Controller
      */
     public function update($id)
     {
-        //
+        $rules = array(
+            'organization_name' => 'required',
+            'address_1' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zipcode' => 'required|numeric',
+            'office_number' => 'required',
+            'email' => 'required|email'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('organization/create')
+                ->withErrors($validator);
+        } else {
+            // store
+            $organization = Organization::findOrFail($id);
+            $organization->organization_name = Input::get('organization_name');
+            $organization->address_1 = Input::get('address_1');
+            $organization->address_2 = Input::get('address_2');
+            $organization->city = Input::get('city');
+            $organization->state = Input::get('state');
+            $organization->zipcode = Input::get('zipcode');
+            $organization->office_number = Input::get('office_number');
+            $organization->email = Input::get('email');
+            $organization->save();
+
+            // redirect
+            Session::flash('message', 'Successfully Updated Organization');
+            return Redirect::to('organization');
+        }
     }
 
     /**
@@ -79,6 +148,11 @@ class OrganizationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $organization = Organization::findorFail($id);
+        $organization->delete();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted the Organization');
+        return Redirect::to('organization');
     }
 }

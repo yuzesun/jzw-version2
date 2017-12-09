@@ -9,8 +9,11 @@
 
                     <div class="panel-body form-horizontal">
                         {{--<form class="form-horizontal" method="GET" action="{{url('organizations')}}">--}}
-                            {!! Form::open(['url' => 'organization']) !!}
-                            {{--{{ csrf_field() }}--}}
+
+                        {{ HTML::ul($errors->all()) }}
+
+                        {!! Form::open(['url' => 'organization']) !!}
+                        {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('organization_name') ? ' has-error' : '' }}">
                                 <label for="name" class="col-md-4 control-label">Organization Name</label>
@@ -44,7 +47,7 @@
                                 <label for="address_2" class="col-md-4 control-label">Address 2</label>
 
                                 <div class="col-md-6">
-                                    <input id="address_2" type="text" class="form-control" name="address_2" value="{{ old('address_2') }}" required autofocus>
+                                    <input id="address_2" type="text" class="form-control" name="address_2" value="{{ old('address_2') }}" autofocus>
 
                                     @if ($errors->has('address_2'))
                                         <span class="help-block">
