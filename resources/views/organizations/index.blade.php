@@ -31,7 +31,7 @@
 
             <table class="table table-striped table-bordered table-hover text-center">
                 <thead>
-                <tr class="warning">
+                <tr class="">
                     <th class="text-center">Organization Name</th>
                     <th class="text-center">Location</th>
                     <th class="text-center">Office Number</th>
