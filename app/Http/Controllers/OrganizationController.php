@@ -113,7 +113,6 @@ class OrganizationController extends Controller
             'state' => 'required',
             'zipcode' => 'required|numeric',
             'office_number' => 'required',
-            'email' => 'required|email'
         );
         $validator = Validator::make(Input::all(), $rules);
 
