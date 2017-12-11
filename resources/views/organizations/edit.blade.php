@@ -8,7 +8,6 @@
                     <div class="panel-heading">Create an Organization</div>
 
                     <div class="panel-body form-horizontal">
-                        {{--<form class="form-horizontal" method="GET" action="{{url('organizations')}}">--}}
 
                         {{ HTML::ul($errors->all()) }}
 
@@ -19,7 +18,7 @@
                             <label for="name" class="col-md-4 control-label">Organization Name</label>
 
                             <div class="col-md-6">
-                                <input id="organization_name" type="text" class="form-control" name="organization_name" value="{{ old('organization_name', $organization->organization_name) }}" required autofocus>
+                                <input id="organization_name" type="text" class="form-control" name="organization_name" value="{{ old('organization_name', $organization->organization_name) }}" required>
 
                                 @if ($errors->has('organization_name'))
                                     <span class="help-block">
@@ -33,7 +32,7 @@
                             <label for="address_1" class="col-md-4 control-label">Address 1</label>
 
                             <div class="col-md-6">
-                                <input id="address_1" type="text" class="form-control" name="address_1" value="{{ old('address_1', $organization->address_1) }}" required autofocus>
+                                <input id="address_1" type="text" class="form-control" name="address_1" value="{{ old('address_1', $organization->address_1) }}" required>
 
                                 @if ($errors->has('address_1'))
                                     <span class="help-block">
@@ -47,7 +46,7 @@
                             <label for="address_2" class="col-md-4 control-label">Address 2</label>
 
                             <div class="col-md-6">
-                                <input id="address_2" type="text" class="form-control" name="address_2" value="{{ old('address_2', $organization->address_2) }}" autofocus>
+                                <input id="address_2" type="text" class="form-control" name="address_2" value="{{ old('address_2', $organization->address_2) }}">
 
                                 @if ($errors->has('address_2'))
                                     <span class="help-block">
@@ -57,11 +56,25 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('zipCode') ? ' has-error' : '' }}">
+                            <label for="zipCode" class="col-md-4 control-label">Zip Code</label>
+
+                            <div class="col-md-6">
+                                <input id="zipCode" type="text" pattern="[0-9]{5}" maxlength="5" style="width: 70px;" class="form-control" name="zipCode" value="{{ old('zipcode', $organization->zipCode) }}" required>
+
+                                @if ($errors->has('zipCode'))
+                                    <span class="help-block">
+                                                            <strong>{{ $errors->first('zipCode') }}</strong>
+                                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
                             <label for="city" class="col-md-4 control-label">City</label>
 
                             <div class="col-md-6">
-                                <input id="city" type="text" class="form-control" name="city" value="{{ old('city', $organization->city) }}" required autofocus>
+                                <input id="city" type="text" style="width: 190px;" class="form-control" name="city" value="{{ old('city', $organization->city) }}" required>
 
                                 @if ($errors->has('city'))
                                     <span class="help-block">
@@ -74,27 +87,12 @@
                         <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
                             <label for="state" class="col-md-4 control-label">State</label>
 
-                            <div class="col-md-6">
-                                <input id="state" type="text" class="form-control" name="state" value="{{ old('state', $organization->state) }}" required autofocus>
-
+                            <div class="col-md-6" style="width: 110px;">
+                                {!! Form::select('state', array(null) + $states->all(), $organization->state, ['id' => 'state', 'class'=>'form-control', 'required']) !!}
                                 @if ($errors->has('state'))
                                     <span class="help-block">
-                                                    <strong>{{ $errors->first('state') }}</strong>
-                                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('zipcode') ? ' has-error' : '' }}">
-                            <label for="zipcode" class="col-md-4 control-label">Zip Code</label>
-
-                            <div class="col-md-6">
-                                <input id="zipcode" type="text" class="form-control" name="zipcode" value="{{ old('zipcode', $organization->zipcode) }}" required autofocus>
-
-                                @if ($errors->has('zipcode'))
-                                    <span class="help-block">
-                                                        <strong>{{ $errors->first('zipcode') }}</strong>
-                                                    </span>
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                         </div>
@@ -103,7 +101,7 @@
                             <label for="office_number" class="col-md-4 control-label">Office Number</label>
 
                             <div class="col-md-6">
-                                <input id="office_number" type="text" class="form-control" name="office_number" value="{{ old('office_number', $organization->office_number) }}" required autofocus>
+                                <input id="office_number" type="text" class="form-control" name="office_number" value="{{ old('office_number', $organization->office_number) }}" required>
 
                                 @if ($errors->has('office_number'))
                                     <span class="help-block">

@@ -48,7 +48,7 @@ class OrganizationController extends Controller
             'address_1' => 'required',
             'city' => 'required',
             'state' => 'required',
-            'zipcode' => 'required|numeric',
+            'zipCode' => 'required|numeric',
             'office_number' => 'required',
         );
         $validator = Validator::make(Input::all(), $rules);
@@ -65,7 +65,7 @@ class OrganizationController extends Controller
             $organization->address_2 = Input::get('address_2');
             $organization->city = Input::get('city');
             $organization->state = Input::get('state');
-            $organization->zipcode = Input::get('zipcode');
+            $organization->zipCode = Input::get('zipCode');
             $organization->office_number = Input::get('office_number');
             $organization->email = Input::get('email');
             $organization->save();
@@ -74,7 +74,6 @@ class OrganizationController extends Controller
             Session::flash('message', 'Successfully Created Organization');
             return Redirect::to('organization');
         }
-//        return View::make('organizations.index');
     }
 
     /**
@@ -96,8 +95,9 @@ class OrganizationController extends Controller
      */
     public function edit($id)
     {
+        $states = State::pluck('state_code', 'state_code');
         $organization = Organization::findOrFail($id);
-        return View::make('organizations.edit')->with('organization', $organization);
+        return View::make('organizations.edit', compact('states'))->with('organization', $organization);
     }
 
     /**
@@ -113,7 +113,7 @@ class OrganizationController extends Controller
             'address_1' => 'required',
             'city' => 'required',
             'state' => 'required',
-            'zipcode' => 'required|numeric',
+            'zipCode' => 'required|numeric',
             'office_number' => 'required',
         );
         $validator = Validator::make(Input::all(), $rules);
@@ -130,7 +130,7 @@ class OrganizationController extends Controller
             $organization->address_2 = Input::get('address_2');
             $organization->city = Input::get('city');
             $organization->state = Input::get('state');
-            $organization->zipcode = Input::get('zipcode');
+            $organization->zipCode = Input::get('zipCode');
             $organization->office_number = Input::get('office_number');
             $organization->email = Input::get('email');
             $organization->save();

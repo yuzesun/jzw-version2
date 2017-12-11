@@ -8,7 +8,6 @@
                     <div class="panel-heading">Create an Organization</div>
 
                     <div class="panel-body form-horizontal">
-                        {{--<form class="form-horizontal" method="GET" action="{{url('organizations')}}">--}}
 
                         {{ HTML::ul($errors->all()) }}
 
@@ -96,17 +95,6 @@
                                     @endif
                                 </div>
                             </div>
-
-                                {{--<div class="col-md-6">--}}
-                                    {{--<input id="state" type="text" class="form-control" name="state" value="{{ old('state') }}" required autofocus>--}}
-
-                                    {{--@if ($errors->has('state'))--}}
-                                        {{--<span class="help-block">--}}
-                                                    {{--<strong>{{ $errors->first('state') }}</strong>--}}
-                                                {{--</span>--}}
-                                    {{--@endif--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
 
                             <div class="form-group{{ $errors->has('office_number') ? ' has-error' : '' }}">
                                 <label for="office_number" class="col-md-4 control-label">Office Number</label>

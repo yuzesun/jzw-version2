@@ -16,13 +16,14 @@ class CreateBranchesTable extends Migration
         Schema::create('branches', function (Blueprint $table) {
             $table->increments('id');
             $table->string('branch_name');
+            $table->integer('organization_id')->unsigned();
             $table->string('address_1');
-            $table->string('address_2');
+            $table->string('address_2')->nullable();
             $table->string('city');
             $table->string('state');
             $table->string('zipCode');
             $table->string('office_number');
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

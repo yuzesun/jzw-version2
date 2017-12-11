@@ -43,12 +43,12 @@
                 @foreach ($organizations as $organization)
                     <tr>
                         <td style="vertical-align: middle">{{ $organization->organization_name }}</td>
-                        <td style="vertical-align: middle">{{ $organization->city }}, {{ $organization->state }} {{ $organization->zipcode }}</td>
+                        <td style="vertical-align: middle">{{ $organization->city }}, {{ $organization->state }} {{ $organization->zipCode }}</td>
                         <td style="vertical-align: middle">{{ $organization->office_number }}</td>
                         <td style="vertical-align: middle">{{ $organization->email }}</td>
                         {{--<td style="vertical-align: middle"><a href="{{route('organizations.show',$organization->id)}}" class="btn btn-primary">Details</a></td>--}}
                         {{--<td style="vertical-align: middle"><a href="{{route('organizations.edit',$organization->id)}}" class="btn btn-warning">Update</a></td>--}}
-                        <td style="vertical-align: middle"><a href="{{ URL::to('organization/' . $organization->id . '/edit') }}" class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></td>
+                        <td style="vertical-align: middle"><a href="{{ URL::to('organization/' . $organization->id . '/edit') }}" class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Profile</a></td>
 
                         <td class="" style="vertical-align: middle">
                             {!! Form::open(['method' => 'DELETE', 'route'=>['organization.destroy', $organization->id]]) !!}
