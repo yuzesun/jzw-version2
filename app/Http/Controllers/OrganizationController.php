@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Organization;
+use App\State;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -31,7 +32,8 @@ class OrganizationController extends Controller
      */
     public function create()
     {
-        return View::make('organizations.create');
+        $states = State::pluck('state_code', 'state_code');
+        return View::make('organizations.create', compact('states'));
     }
 
     /**

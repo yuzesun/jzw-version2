@@ -20,7 +20,7 @@ class CreateOrganizationsTable extends Migration
             $table->string('address_2')->nullable();
             $table->string('city');
             $table->string('state');
-            $table->string('zipcode');
+            $table->string('zipCode');
             $table->string('office_number');
             $table->string('email')->unique()->nullable();
             $table->timestamps();

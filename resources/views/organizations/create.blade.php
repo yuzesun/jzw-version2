@@ -57,12 +57,25 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('zipCode') ? ' has-error' : '' }}">
+                                <label for="zipCode" class="col-md-4 control-label">Zip Code</label>
+
+                                <div class="col-md-6">
+                                    <input id="zipCode" type="text" pattern="[0-9]{5}" maxlength="5" style="width: 70px;" class="form-control" name="zipCode" value="{{ old('zipcode') }}" required autofocus>
+
+                                    @if ($errors->has('zipCode'))
+                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('zipCode') }}</strong>
+                                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
                                 <label for="city" class="col-md-4 control-label">City</label>
 
                                 <div class="col-md-6">
-                                    <input id="city" type="text" class="form-control" name="city" value="{{ old('city') }}" required autofocus>
-
+                                    <input id="city" type="text" style="width: 190px;" class="form-control" name="city" value="{{ old('city') }}" required autofocus>
                                     @if ($errors->has('city'))
                                         <span class="help-block">
                                                 <strong>{{ $errors->first('city') }}</strong>
@@ -74,30 +87,26 @@
                             <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
                                 <label for="state" class="col-md-4 control-label">State</label>
 
-                                <div class="col-md-6">
-                                    <input id="state" type="text" class="form-control" name="state" value="{{ old('state') }}" required autofocus>
-
+                                <div class="col-md-6" style="width: 110px;">
+                                    {!! Form::select('state', array(null) + $states->all(), null, ['id' => 'state', 'class'=>'form-control', 'required']) !!}
                                     @if ($errors->has('state'))
                                         <span class="help-block">
-                                                    <strong>{{ $errors->first('state') }}</strong>
-                                                </span>
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('zipcode') ? ' has-error' : '' }}">
-                                <label for="zipcode" class="col-md-4 control-label">Zip Code</label>
+                                {{--<div class="col-md-6">--}}
+                                    {{--<input id="state" type="text" class="form-control" name="state" value="{{ old('state') }}" required autofocus>--}}
 
-                                <div class="col-md-6">
-                                    <input id="zipcode" type="text" class="form-control" name="zipcode" value="{{ old('zipcode') }}" required autofocus>
-
-                                    @if ($errors->has('zipcode'))
-                                        <span class="help-block">
-                                                        <strong>{{ $errors->first('zipcode') }}</strong>
-                                                    </span>
-                                    @endif
-                                </div>
-                            </div>
+                                    {{--@if ($errors->has('state'))--}}
+                                        {{--<span class="help-block">--}}
+                                                    {{--<strong>{{ $errors->first('state') }}</strong>--}}
+                                                {{--</span>--}}
+                                    {{--@endif--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
                             <div class="form-group{{ $errors->has('office_number') ? ' has-error' : '' }}">
                                 <label for="office_number" class="col-md-4 control-label">Office Number</label>
@@ -142,4 +151,7 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('js/zipcodefinder.js') }}"></script>
+
 @endsection

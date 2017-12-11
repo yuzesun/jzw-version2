@@ -20,7 +20,7 @@ class CreateBranchesTable extends Migration
             $table->string('address_2');
             $table->string('city');
             $table->string('state');
-            $table->string('zipcode');
+            $table->string('zipCode');
             $table->string('office_number');
             $table->string('email')->unique();
             $table->timestamps();
