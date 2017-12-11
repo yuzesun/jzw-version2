@@ -55,27 +55,5 @@ class UsersTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' =>Carbon::now(),
         ]);
-
-        DB::table('users')->insert([
-            'first_name' => 'John',
-            'last_name' => 'Legend',
-            'phone_number' => '(402) 929-1172',
-            'email' => 'john@gmail.com',
-            'role_id' => 5,
-            'password' => bcrypt('password1234'),
-            'created_at' => Carbon::now(),
-            'updated_at' =>Carbon::now(),
-        ]);
-
-        DB::table('users')->insert([
-            'first_name' => 'Adam',
-            'last_name' => 'England',
-            'phone_number' => '(402) 374-2129',
-            'email' => 'adam@gmail.com',
-            'role_id' => 6,
-            'password' => bcrypt('password1234'),
-            'created_at' => Carbon::now(),
-            'updated_at' =>Carbon::now(),
-        ]);
     }
 }
