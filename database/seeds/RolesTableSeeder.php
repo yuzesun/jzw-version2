@@ -33,17 +33,5 @@ class RolesTableSeeder extends Seeder
             'name' => 'JZW User',
             'description' => 'The User of JZW International Development, LLC',
         ]);
-
-        DB::table('roles')->insert([
-            'id' => 5,
-            'name' => 'Business Admin',
-            'description' => 'The Admin of a customer business',
-        ]);
-
-        DB::table('roles')->insert([
-            'id' => 6,
-            'name' => 'Business User',
-            'description' => 'The User of a customer business',
-        ]);
     }
 }

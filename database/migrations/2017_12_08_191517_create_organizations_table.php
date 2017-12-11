@@ -22,7 +22,7 @@ class CreateOrganizationsTable extends Migration
             $table->string('state');
             $table->string('zipcode');
             $table->string('office_number');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->timestamps();
         });
     }

@@ -12,14 +12,12 @@ class OrganizationsTableSeeder extends Seeder
     public function run()
     {
         DB::table('organizations')->insert([
-            'organization_name' => 'JZW International Development, LLC.',
-            'address_1' => '4245 S. 143rd Circle',
-            'address_2' => 'Suite #5',
-            'city' => 'Omaha',
-            'state' => 'Nebraska',
-            'zipcode' => '68127',
-            'office_number' => '402-933-8876',
-            'email' => 'sun@jzwusa.com',
+            'organization_name' => 'ABC Supply Co',
+            'address_1' => '1 ABC Parkway',
+            'city' => 'Beloit',
+            'state' => 'WI',
+            'zipcode' => '53511',
+            'office_number' => '608-362-7777',
         ]);
     }
 }
