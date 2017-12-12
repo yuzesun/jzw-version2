@@ -37,6 +37,7 @@ class CreateBranchesTable extends Migration
     {
         Schema::dropIfExists('users');
         Schema::dropIfExists('organizations');
+        Schema::dropIfExists('forwarders');
         Schema::dropIfExists('orders');
         Schema::dropIfExists('branches');
     }
