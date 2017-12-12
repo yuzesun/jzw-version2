@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('address_2') ? ' has-error' : '' }}">
-                                <label for="address_2" class="col-md-4 control-label">Address 2</label>
+                                <label for="address_2" class="col-md-4 control-label">Address 2 (Optional)</label>
 
                                 <div class="col-md-6">
                                     <input id="address_2" type="text" class="form-control" name="address_2" value="{{ old('address_2') }}" autofocus>
@@ -116,7 +116,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                <label for="email" class="col-md-4 control-label">E-Mail Address (Optional)</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
