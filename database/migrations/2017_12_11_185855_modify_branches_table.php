@@ -25,10 +25,11 @@ class ModifyBranchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
         Schema::dropIfExists('users');
-        Schema::dropIfExists('organizations');
-        Schema::dropIfExists('forwarders');
+        Schema::dropIfExists('orders');
         Schema::dropIfExists('branches');
+        Schema::dropIfExists('organizations');
+        Schema::dropIfExists('vendors');
+        Schema::dropIfExists('forwarders');
     }
 }
