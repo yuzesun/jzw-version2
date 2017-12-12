@@ -35,6 +35,7 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('vendors');
         Schema::dropIfExists('branches');
         Schema::dropIfExists('orders');
     }
