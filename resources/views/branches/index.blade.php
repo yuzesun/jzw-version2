@@ -48,8 +48,6 @@
                         <td style="vertical-align: middle">{{ $branch->city }}, {{ $branch->state }} {{ $branch->zipCode }}</td>
                         <td style="vertical-align: middle">{{ $branch->office_number }}</td>
                         <td style="vertical-align: middle">{{ $branch->email }}</td>
-                        {{--<td style="vertical-align: middle"><a href="{{route('organizations.show',$organization->id)}}" class="btn btn-primary">Details</a></td>--}}
-                        {{--<td style="vertical-align: middle"><a href="{{route('organizations.edit',$organization->id)}}" class="btn btn-warning">Update</a></td>--}}
                         <td style="vertical-align: middle"><a href="{{ URL::to('branch/' . $branch->id . '/edit') }}" class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Profile</a></td>
 
                         <td class="" style="vertical-align: middle">

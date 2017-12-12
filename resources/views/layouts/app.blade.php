@@ -75,7 +75,7 @@
                     <div class="w3-dropdown-hover w3-hide-small w3-right" style="right: 0;">
                         <button class="w3-button w3-hover-blue-gray" title=""><i class="fa fa-user-circle" aria-hidden="true"></i> {{ Auth::user()->first_name }} </button>
                         <div class="w3-dropdown-content w3-card-2 w3-bar-block" style="right:0;">
-                            <a href="#" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Profile</a>
+                            <a href="{{ URL::to('user/' . \Illuminate\Support\Facades\Auth::user()->id . '/edit') }}" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Profile</a>
                             <a href="#" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Orders</a>
                             <a href="{{ route('logout') }}" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none"
                                onclick="event.preventDefault();
@@ -112,7 +112,7 @@
                     <div class="w3-dropdown-hover w3-hide-small w3-right" style="right: 0;">
                         <button class="w3-button w3-hover-blue-gray" title=""><i class="fa fa-user-circle" aria-hidden="true"></i> {{ Auth::user()->first_name }} </button>
                         <div class="w3-dropdown-content w3-card-2 w3-bar-block" style="min-width: 100px; right:0;">
-                            <a href="#" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Profile</a>
+                            <a href="{{ URL::to('user/' . \Illuminate\Support\Facades\Auth::user()->id . '/edit') }}" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Profile</a>
                             <a href="#" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Orders</a>
                             <a href="{{ route('logout') }}" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none"
                                onclick="event.preventDefault();
