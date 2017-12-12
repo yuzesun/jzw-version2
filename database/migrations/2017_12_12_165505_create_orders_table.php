@@ -15,6 +15,15 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('branch_id')->unsigned();
+            $table->integer('vendor_id')->unsigned();
+            $table->string('order_number')->unique();
+            $table->date('order_date');
+            $table->date('etd');
+            $table->date('eta');
+            $table->string('shipping_status');
+            $table->date('arrival_date');
+            $table->char('comments', 100);
             $table->timestamps();
         });
     }

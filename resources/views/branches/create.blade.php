@@ -32,7 +32,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('branch_name') ? ' has-error' : '' }}" id="role-group" style="display: none;">
+                        <div class="form-group{{ $errors->has('branch_name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Branch Name or Number</label>
 
                             <div class="col-md-6">
@@ -161,15 +161,5 @@
     <script src="{{ asset('js/hideCityState.js') }}"></script>
     <script src="{{ asset('js/zipcodefinder.js') }}"></script>
     <script src="{{ asset('js/phone.js') }}"></script>
-    <script>
-        $("#loc-drop-down").change(function () {
-
-            if (this.value == '') {
-                document.getElementById("role-group").style.display = "none";
-            } else {
-                document.getElementById("role-group").style.display = "block";
-            }
-        });
-    </script>
 
 @endsection
