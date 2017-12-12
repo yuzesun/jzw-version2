@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{url('/branch')}}">Branch</a></li>
+            <li class="breadcrumb-item active">Add a Branch</li>
+        </ol>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -18,7 +23,7 @@
                             <label for="organization" class="col-md-4 control-label">Organizaiton</label>
 
                             <div class="col-md-6" style="">
-                                {!! Form::select('organization_id', array(null => 'Select an Organization') + $organization->all(), null, ['class'=>'form-control', 'required', 'autofocus']) !!}
+                                {!! Form::select('organization_id', array(null => 'Select an Organization') + $organization->all(), null, ['class'=>'form-control', 'id' => 'loc-drop-down', 'required', 'autofocus']) !!}
                                 @if ($errors->has('organization_id'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('organization_id') }}</strong>
@@ -27,7 +32,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('branch_name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('branch_name') ? ' has-error' : '' }}" id="role-group" style="display: none;">
                             <label for="name" class="col-md-4 control-label">Branch Name or Number</label>
 
                             <div class="col-md-6">
@@ -83,7 +88,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
+                        <div id="hideCity" class="form-group{{ $errors->has('city') ? ' has-error' : '' }}" style="display: none;">
                             <label for="city" class="col-md-4 control-label">City</label>
 
                             <div class="col-md-6">
@@ -96,7 +101,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                        <div id="hideState" class="form-group{{ $errors->has('state') ? ' has-error' : '' }}" style="display: none;">
                             <label for="state" class="col-md-4 control-label">State</label>
 
                             <div class="col-md-6" style="width: 110px;">
@@ -113,7 +118,7 @@
                             <label for="office_number" class="col-md-4 control-label">Office Number</label>
 
                             <div class="col-md-6">
-                                <input id="office_number" type="text" class="form-control" name="office_number" value="{{ old('office_number') }}" required autofocus>
+                                <input id="phone" type="text" class="form-control" placeholder="(555) 555-5555" name="office_number" value="{{ old('office_number') }}" required autofocus>
 
                                 @if ($errors->has('office_number'))
                                     <span class="help-block">
@@ -153,6 +158,18 @@
         </div>
     </div>
 
+    <script src="{{ asset('js/hideCityState.js') }}"></script>
     <script src="{{ asset('js/zipcodefinder.js') }}"></script>
+    <script src="{{ asset('js/phone.js') }}"></script>
+    <script>
+        $("#loc-drop-down").change(function () {
+
+            if (this.value == '') {
+                document.getElementById("role-group").style.display = "none";
+            } else {
+                document.getElementById("role-group").style.display = "block";
+            }
+        });
+    </script>
 
 @endsection

@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{url('/home')}}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{url('/branch')}}">Branch</a></li>
+            <li class="breadcrumb-item active">Branch Profile</li>
+        </ol>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -112,7 +117,7 @@
                             <label for="office_number" class="col-md-4 control-label">Office Number</label>
 
                             <div class="col-md-6">
-                                <input id="office_number" type="text" class="form-control" name="office_number" value="{{ old('office_number', $branch->office_number) }}" required>
+                                <input id="phone" type="text" class="form-control" name="office_number" value="{{ old('office_number', $branch->office_number) }}" required>
 
                                 @if ($errors->has('office_number'))
                                     <span class="help-block">
@@ -150,6 +155,8 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('js/phone.js') }}"></script>
 
     <script src="{{ asset('js/zipcodefinder.js') }}"></script>
 
