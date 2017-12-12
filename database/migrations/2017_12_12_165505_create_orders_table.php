@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->date('order_date');
             $table->date('etd');
             $table->date('eta');
+            $table->string('vendor_payment');
             $table->string('shipping_status');
             $table->date('arrival_date')->nullable();
             $table->char('comments', 100);
