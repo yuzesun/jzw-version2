@@ -17,12 +17,13 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('branch_id')->unsigned();
             $table->integer('vendor_id')->unsigned();
+            $table->integer('forwarder_id')->unsigned()->nullable();
             $table->string('order_number')->unique();
             $table->date('order_date');
             $table->date('etd');
             $table->date('eta');
             $table->string('shipping_status');
-            $table->date('arrival_date');
+            $table->date('arrival_date')->nullable();
             $table->char('comments', 100);
             $table->timestamps();
         });

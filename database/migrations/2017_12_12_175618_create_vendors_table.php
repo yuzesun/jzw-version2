@@ -17,6 +17,8 @@ class CreateVendorsTable extends Migration
             $table->increments('id');
             $table->string('vendor_name')->unique();
             $table->string('vendor_address');
+            $table->string('email_1')->unique();
+            $table->string('email_2')->unique()->nullable();
             $table->string('bank_name');
             $table->string('bank_address');
             $table->string('bank_swift_code');
