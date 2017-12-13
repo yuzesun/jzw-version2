@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Create a Branch</div>
+                    <div class="panel-heading">Create an Order</div>
 
                     <div class="panel-body form-horizontal">
 
@@ -20,13 +20,26 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('organization_id') ? ' has-error' : '' }}">
-                            <label for="organization" class="col-md-4 control-label">Organizaiton</label>
+                            <label for="organization" class="col-md-4 control-label">Organization Name</label>
 
                             <div class="col-md-6" style="">
                                 {!! Form::select('organization_id', array(null => 'Select an Organization') + $organization->all(), null, ['class'=>'form-control', 'id' => 'loc-drop-down', 'required', 'autofocus']) !!}
                                 @if ($errors->has('organization_id'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('organization_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('branch_id') ? ' has-error' : '' }}">
+                            <label for="organization" class="col-md-4 control-label">Branch Name</label>
+
+                            <div class="col-md-6" style="">
+                                {!! Form::select('branch_id', array(null => 'Select a Branch') + $branch->all(), null, ['class'=>'form-control', 'id' => 'loc-drop-down', 'required', 'autofocus']) !!}
+                                @if ($errors->has('branch_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('branch_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -95,7 +108,7 @@
 
                             <div class="col-md-6" style="display: flex; justify-content: flex-start;">
                                 <input class="numberOnly form-control" pattern="[0-9]*" type="text" placeholder="0.00" style="position: relative;padding-left: 20px; width: 190px;" name="vendor_payment" value="{{ old('vendor_payment') }}" required autofocus>
-                                <span style="position: absolute; top: 7px; left: 25px;">$</span>
+                                <span style="position: absolute; top: 7px; left: 25px; color: gray;">$</span>
                                 @if ($errors->has('vendor_payment'))
                                     <span class="help-block">
                                                 <strong>{{ $errors->first('vendor_payment') }}</strong>

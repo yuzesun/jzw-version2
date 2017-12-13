@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Branch;
 use App\Order;
 use App\Organization;
 use App\ShippingStatus;
@@ -36,6 +37,7 @@ class OrderController extends Controller
     {
         $shippingStatus = ShippingStatus::pluck('status_name', 'id');
         $organization = Organization::pluck('organization_name', 'id');
-        return View::make('orders.create', compact('organization', 'shippingStatus'));
+        $branch = Branch::pluck('branch_name', 'id');
+        return View::make('orders.create', compact('organization', 'shippingStatus', 'branch'));
     }
 }
