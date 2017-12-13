@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\Organization;
+use App\ShippingStatus;
 use App\State;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,8 @@ class OrderController extends Controller
      */
     public function create()
     {
+        $shippingStatus = ShippingStatus::pluck('status_name', 'id');
         $organization = Organization::pluck('organization_name', 'id');
-        return View::make('orders.create', compact('organization'));
+        return View::make('orders.create', compact('organization', 'shippingStatus'));
     }
 }

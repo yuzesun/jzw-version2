@@ -32,6 +32,14 @@
 </head>
 
 <style>
+
+    .currencyinput {
+        border: 1px inset #ccc;
+    }
+    .currencyinput input {
+        border: 0;
+    }
+
     .m-b-md {
         margin-bottom: 30px;
     }
