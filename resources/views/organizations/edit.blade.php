@@ -50,7 +50,7 @@
                         <div class="form-group{{ $errors->has('address_2') ? ' has-error' : '' }}">
                             <label for="address_2" class="col-md-4 control-label">Address 2 (Optional)</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="width: 140px;">
                                 <input id="address_2" type="text" class="form-control" name="address_2" value="{{ old('address_2', $organization->address_2) }}">
 
                                 @if ($errors->has('address_2'))
@@ -105,7 +105,7 @@
                         <div class="form-group{{ $errors->has('office_number') ? ' has-error' : '' }}">
                             <label for="office_number" class="col-md-4 control-label">Office Number</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="width: 160px;">
                                 <input id="phone" type="text" class="form-control" name="office_number" value="{{ old('office_number', $organization->office_number) }}" required>
 
                                 @if ($errors->has('office_number'))

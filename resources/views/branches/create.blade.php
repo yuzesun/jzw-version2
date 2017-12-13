@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('branch_name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Branch Name or Number</label>
+                            <label for="branch_name" class="col-md-4 control-label">Branch Name or Number</label>
 
                             <div class="col-md-6">
                                 <input id="branch_name" type="text" class="form-control" name="branch_name" value="{{ old('branch_name') }}" required>
@@ -117,7 +117,7 @@
                         <div class="form-group{{ $errors->has('office_number') ? ' has-error' : '' }}">
                             <label for="office_number" class="col-md-4 control-label">Office Number</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="width: 160px;">
                                 <input id="phone" type="text" class="form-control" placeholder="(555) 555-5555" name="office_number" value="{{ old('office_number') }}" required autofocus>
 
                                 @if ($errors->has('office_number'))
@@ -151,7 +151,6 @@
                             </div>
                         </div>
                         {!! Form::close() !!}
-                        {{--</form>--}}
                     </div>
                 </div>
             </div>

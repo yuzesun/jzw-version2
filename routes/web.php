@@ -20,8 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
-
     Route::resource('organization', 'OrganizationController');
     Route::resource('branch', 'BranchController');
     Route::resource('user', 'UserController');
+    Route::resource('order', 'OrderController');
 });

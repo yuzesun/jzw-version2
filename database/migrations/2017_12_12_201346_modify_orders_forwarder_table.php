@@ -14,6 +14,7 @@ class ModifyOrdersForwarderTable extends Migration
     public function up()
     {
         Schema::table('orders', function(Blueprint $table) {
+            $table->foreign('organization_id')->references('id')->on('organizations')->onDelete('cascade');
             $table->foreign('forwarder_id')->references('id')->on('forwarders')->onDelete('cascade');
         });
     }

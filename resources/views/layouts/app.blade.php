@@ -92,7 +92,7 @@
                         <button class="w3-button w3-hover-blue-gray" title=""><i class="fa fa-user-circle" aria-hidden="true"></i> JZW International </button>
                         <div class="w3-dropdown-content w3-card-2 w3-bar-block" style="min-width: 100px;">
                             <a href="#" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Dashboard</a>
-                            <a href="#" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Orders</a>
+                            <a href="{{url('order')}}" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Orders</a>
                             <a href="{{url('organization')}}" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-microchip" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Organizations</a>
                             <a href="{{url('branch')}}" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-handshake-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Branches</a>
                         </div>
@@ -113,7 +113,7 @@
                         <button class="w3-button w3-hover-blue-gray" title=""><i class="fa fa-user-circle" aria-hidden="true"></i> {{ Auth::user()->first_name }} </button>
                         <div class="w3-dropdown-content w3-card-2 w3-bar-block" style="min-width: 100px; right:0;">
                             <a href="{{ URL::to('user/' . \Illuminate\Support\Facades\Auth::user()->id . '/edit') }}" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Profile</a>
-                            <a href="#" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Orders</a>
+                            <a href="{{url('order')}}" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none;"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Orders</a>
                             <a href="{{ route('logout') }}" class="w3-bar-item w3-button w3-hover-blue-gray" style="text-align: left; text-decoration: none"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i>

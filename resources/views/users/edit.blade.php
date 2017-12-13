@@ -68,7 +68,7 @@
                         <div class="form-group{{ $errors->has('address_2') ? ' has-error' : '' }}">
                             <label for="address_2" class="col-md-4 control-label">Address 2 (Optional)</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="width: 140px;">
                                 <input id="address_2" type="text" class="form-control" name="address_2" value="{{ old('address_2', $user->address_2) }}">
 
                                 @if ($errors->has('address_2'))
