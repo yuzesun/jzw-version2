@@ -115,7 +115,7 @@ class BranchController extends Controller
     {
         $rules = array(
             'organization_id' => 'required',
-            'branch_name' => 'required',
+            'branch_name' => 'required|unique:branches,branch_name,'.$id,
             'address_1' => 'required',
             'city' => 'required',
             'state' => 'required',

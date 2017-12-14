@@ -14,8 +14,6 @@
 
                     <div class="panel-body form-horizontal">
 
-                        {{ HTML::ul($errors->all()) }}
-
                         {{ Form::model($organization, array('route' => array('organization.update', $organization->id), 'method' => 'PUT')) }}
                         {{--{{ csrf_field() }}--}}
 

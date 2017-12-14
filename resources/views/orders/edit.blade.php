@@ -34,7 +34,7 @@
                             <label for="organization_id" class="col-md-4 control-label">Organization Name</label>
 
                             <div class="col-md-6" style="">
-                                {!! Form::select('organization_id', array(null => 'Select an Organization') + $organization->all(), null, ['class'=>'form-control', 'id' => 'loc-drop-down', 'required']) !!}
+                                {!! Form::select('organization_id', array(null => 'Select an Organization') + $organization->all(), old('organization_id', $order->organization_id), ['class'=>'form-control', 'id' => 'loc-drop-down', 'required']) !!}
                                 @if ($errors->has('organization_id'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('organization_id') }}</strong>
@@ -47,7 +47,7 @@
                             <label for="branch_id" class="col-md-4 control-label">Branch Name</label>
 
                             <div class="col-md-6" style="">
-                                {!! Form::select('branch_id', array(null => 'Select a Branch') + $branch->all(), null, ['class'=>'form-control', 'id' => 'loc-drop-down', 'required']) !!}
+                                {!! Form::select('branch_id', array(null => 'Select a Branch') + $branch->all(), old('branch_id', $order->branch_id), ['class'=>'form-control', 'id' => 'loc-drop-down', 'required']) !!}
                                 @if ($errors->has('branch_id'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('branch_id') }}</strong>

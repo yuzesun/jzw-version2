@@ -14,15 +14,13 @@
 
                     <div class="panel-body form-horizontal">
 
-                        {{ HTML::ul($errors->all()) }}
-
                         {{ Form::model($branch, array('route' => array('branch.update', $branch->id), 'method' => 'PUT')) }}
 
                         <div class="form-group{{ $errors->has('organization_id') ? ' has-error' : '' }}">
                             <label for="organization_id" class="col-md-4 control-label">Organizaiton Name</label>
 
                             <div class="col-md-6" style="">
-                                {!! Form::select('organization_id', $organization->all(), null, ['class'=>'form-control', 'required']) !!}
+                                {!! Form::select('organization_id', $organization->all(), old('organization_id', $branch->organization_id), ['class'=>'form-control', 'required']) !!}
                                 @if ($errors->has('organization_id'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('organization_id') }}</strong>

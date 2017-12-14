@@ -104,7 +104,7 @@ class OrderController extends Controller
         $rules = array(
             'organization_id' => 'required',
             'branch_id' => 'required',
-            'order_number' => 'required',
+            'order_number' => 'required|unique:orders,order_number,'.$id,
             'order_date' => 'required',
             'etd' => 'required',
             'eta' => 'required',

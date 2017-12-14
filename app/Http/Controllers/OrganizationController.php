@@ -109,7 +109,7 @@ class OrganizationController extends Controller
     public function update($id)
     {
         $rules = array(
-            'organization_name' => 'required',
+            'organization_name' => 'required|unique:organizations,organization_name,'.$id,
             'address_1' => 'required',
             'city' => 'required',
             'state' => 'required',

@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->integer('branch_id')->unsigned();
             $table->integer('vendor_id')->unsigned();
             $table->integer('forwarder_id')->unsigned()->nullable();
-            $table->string('order_number');
+            $table->string('order_number')->unique();
             $table->date('order_date');
             $table->date('etd');
             $table->date('eta');
