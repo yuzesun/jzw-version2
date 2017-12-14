@@ -126,7 +126,7 @@ class BranchController extends Controller
 
         // process the login
         if ($validator->fails()) {
-            return Redirect::to('branch/create')
+            return Redirect::to('branch/' .$id .'/edit')
                 ->withErrors($validator);
         } else {
             // store

@@ -14,13 +14,11 @@
 
                     <div class="panel-body form-horizontal">
 
-                        {{ HTML::ul($errors->all()) }}
-
-                        {!! Form::open(['url' => 'branch']) !!}
+                        {!! Form::open(['url' => 'order']) !!}
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('organization_id') ? ' has-error' : '' }}">
-                            <label for="organization" class="col-md-4 control-label">Organization Name</label>
+                            <label for="organization_id" class="col-md-4 control-label">Organization Name</label>
 
                             <div class="col-md-6" style="">
                                 {!! Form::select('organization_id', array(null => 'Select an Organization') + $organization->all(), null, ['class'=>'form-control', 'id' => 'loc-drop-down', 'required', 'autofocus']) !!}
@@ -33,7 +31,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('branch_id') ? ' has-error' : '' }}">
-                            <label for="organization" class="col-md-4 control-label">Branch Name</label>
+                            <label for="branch_id" class="col-md-4 control-label">Branch Name</label>
 
                             <div class="col-md-6" style="">
                                 {!! Form::select('branch_id', array(null => 'Select a Branch') + $branch->all(), null, ['class'=>'form-control', 'id' => 'loc-drop-down', 'required', 'autofocus']) !!}
@@ -64,7 +62,7 @@
                             <label for="order_date" class="col-md-4 control-label">Order Date</label>
 
                             <div class="col-md-6">
-                                <input id="date1" type="text" placeholder="MM / DD / YYYY" class="form-control" style="width: 130px;" name="order_date" value="<?php echo date('m / d / Y'); ?>" autofocus>
+                                <input type="date" placeholder="MM / DD / YYYY" class="form-control" style="width: 155px;" name="order_date" value="<?php echo date('Y-m-d'); ?>" autofocus>
 
                                 @if ($errors->has('order_date'))
                                     <span class="help-block">
@@ -74,11 +72,24 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('vendor_id') ? ' has-error' : '' }}">
+                            <label for="vendor_id" class="col-md-4 control-label">Vendor Name</label>
+
+                            <div class="col-md-6" style="">
+                                {!! Form::select('vendor_id', array(null => 'Select a Vendor') + $vendor->all(), null, ['class'=>'form-control', 'required', 'autofocus']) !!}
+                                @if ($errors->has('vendor_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('vendor_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('etd') ? ' has-error' : '' }}">
                             <label for="etd" class="col-md-4 control-label">Estimated Departure Date</label>
 
                             <div class="col-md-6">
-                                <input id="date2" type="text" placeholder="MM / DD / YYYY" class="form-control" style="width: 130px;" name="etd" value="{{ old('etd') }}" autofocus>
+                                <input type="date" placeholder="MM / DD / YYYY" class="form-control" style="width: 155px;" name="etd" value="{{ old('etd') }}" autofocus>
 
                                 @if ($errors->has('etd'))
                                     <span class="help-block">
@@ -92,7 +103,7 @@
                             <label for="eta" class="col-md-4 control-label">Estimated Arrival Date</label>
 
                             <div class="col-md-6">
-                                <input id="date3" type="text" placeholder="MM / DD / YYYY" style="width: 130px;" class="form-control" name="eta" value="{{ old('eta') }}" required autofocus>
+                                <input type="date" placeholder="MM / DD / YYYY" style="width: 155px;" class="form-control" name="eta" value="{{ old('eta') }}" required autofocus>
 
                                 @if ($errors->has('eta'))
                                     <span class="help-block">
@@ -107,7 +118,7 @@
                             <label for="vendor_payment" class="col-md-4 control-label">vendor_payment (Optional)</label>
 
                             <div class="col-md-6" style="display: flex; justify-content: flex-start;">
-                                <input class="numberOnly form-control" pattern="[0-9]*" type="text" placeholder="0.00" style="position: relative;padding-left: 20px; width: 190px;" name="vendor_payment" value="{{ old('vendor_payment') }}" required autofocus>
+                                <input class="numberOnly form-control" placeholder="0.00" style="position: relative;padding-left: 20px; width: 190px;" name="vendor_payment" value="{{ old('vendor_payment') }}" autofocus>
                                 <span style="position: absolute; top: 7px; left: 25px; color: gray;">$</span>
                                 @if ($errors->has('vendor_payment'))
                                     <span class="help-block">
@@ -149,7 +160,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     Create
                                 </button>
-                                <a href="{{url('branch')}}" type="button" class="btn btn-default">Cancel</a>
+                                <a href="{{url('order')}}" type="button" class="btn btn-default">Cancel</a>
                             </div>
                         </div>
                         {!! Form::close() !!}
@@ -160,7 +171,4 @@
     </div>
 
     <script src="{{ asset('js/currency.js') }}"></script>
-    <script src="{{ asset('js/date1.js') }}"></script>
-    <script src="{{ asset('js/date2.js') }}"></script>
-    <script src="{{ asset('js/date3.js') }}"></script>
 @endsection

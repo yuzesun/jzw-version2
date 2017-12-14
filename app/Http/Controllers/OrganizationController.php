@@ -120,7 +120,7 @@ class OrganizationController extends Controller
 
         // process the login
         if ($validator->fails()) {
-            return Redirect::to('organization/create')
+            return Redirect::to('organization/' .$id .'/edit')
                 ->withErrors($validator);
         } else {
             // store
