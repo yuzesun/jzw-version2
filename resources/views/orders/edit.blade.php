@@ -16,6 +16,12 @@
 
                         {{ Form::model($order, array('route' => array('order.update', $order->id), 'method' => 'PUT')) }}
 
+                        <div class="" style="">
+                            @if (Session::has('message'))
+                                <div class="alert alert-success" style="">{{ Session::get('message') }}</div>
+                            @endif
+                        </div>
+
                         <div class="form-group{{ $errors->has('order_number') ? ' has-error' : '' }}">
                             <label for="order_number" class="col-md-4 control-label">Order Number</label>
 
@@ -53,6 +59,15 @@
                                         <strong>{{ $errors->first('branch_id') }}</strong>
                                     </span>
                                 @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('comments') ? ' has-error' : '' }}">
+                            <label for="branch_address" class="col-md-4 control-label">Branch Address</label>
+
+                            <div class="col-md-6">
+                                <textarea style="resize: none;" placeholder="" rows="3" id="branch_address" type="text"
+                                          class="form-control" name="branch_address" readonly>{{$order->orderOrg->organization_name}}&#13;&#10;{{$order->orderBranch->address_1}} {{$order->orderBranch->address_2}}&#13;&#10;{{$order->orderBranch->city}}, {{$order->orderBranch->state}} {{$order->orderBranch->zipCode}}</textarea>
                             </div>
                         </div>
 

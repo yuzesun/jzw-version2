@@ -13,8 +13,6 @@
 
                     <div class="panel-body form-horizontal">
 
-                        {{ HTML::ul($errors->all()) }}
-
                         {{ Form::model($user, array('route' => array('user.update', $user->id), 'method' => 'PUT')) }}
 
                         <div class="" style="">

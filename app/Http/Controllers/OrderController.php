@@ -136,7 +136,7 @@ class OrderController extends Controller
 
             // redirect
             Session::flash('message', 'Successfully Updated Order');
-            return Redirect::to('order');
+            return Redirect::to('order/' .$id .'/edit');
         }
     }
 
